@@ -31,6 +31,7 @@ cd backend/
 uvicorn backend:app --reload
 
 # Step 4: Start the Flask frontend (in a new terminal)
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 cd frontend/
 python frontend.py
 

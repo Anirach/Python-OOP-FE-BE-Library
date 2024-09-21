@@ -1,16 +1,15 @@
 from fastapi import FastAPI, HTTPException
 from database import Database
+from models import Book
 from contextlib import asynccontextmanager
 
 app = FastAPI()
 db = Database()
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan():
     yield
     db.close()
-
-app = FastAPI(lifespan=lifespan)
 
 # Fetch all books
 @app.get("/api/books")
@@ -20,8 +19,8 @@ async def get_books():
 
 # Add a book (backend endpoint)
 @app.post("/api/books")
-async def add_book(title: str, author: str, year: int, description: str):
-    db.add_book(title, author, year, description)
+async def add_book(book: Book):
+    db.add_book(book.title, book.author, book.year, book.description)
     return {"message": "Book added successfully"}
 
 # Fetch a single book

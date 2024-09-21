@@ -10,11 +10,11 @@ h1 {
     text-align: center;
     color: #2b3e50;
     margin-bottom: 30px;
-    font-size: 36px; /* Increased font size for h1 */
+    font-size: 36px; /* Adjusted to a larger font size */
 }
 
 .container {
-    max-width: 900px; /* Slightly increased width for better spacing */
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
@@ -26,23 +26,24 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px; /* Added spacing after the table */
+    margin-bottom: 20px;
 }
 
 thead {
     background-color: #2b3e50;
     color: white;
-    text-transform: uppercase; /* Changed to uppercase */
 }
 
 table th, table td {
     padding: 15px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 table th {
     font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 table tr:nth-child(even) {
@@ -61,18 +62,18 @@ table td {
     font-weight: bold;
     color: #2b3e50;
     text-decoration: none;
-    margin-right: 15px;
+    margin-right: 10px;
     cursor: pointer;
-}
-
-.action-link:hover, .delete-button:hover {
-    text-decoration: underline;
 }
 
 .delete-button {
     border: none;
     background: none;
     font-weight: bold;
+}
+
+.action-link:hover, .delete-button:hover {
+    text-decoration: underline;
 }
 
 .add-book-link {
@@ -90,45 +91,8 @@ table td {
 }
 
 form {
-    margin-top: 30px;
-    text-align: center;
-}
-
-input[type="text"], input[type="number"], textarea {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #2b3e50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #1e2f40;
-}
-
-.create-button {
-    background-color: #2b3e50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.create-button:hover {
-    background-color: #1e2f40;
+    display: inline;
+    margin: 0;
 }
 
 .actions {
