@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Books</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>TITLE</th>
+                    <th>AUTHOR</th>
+                    <th>YEAR</th>
+                    <th>DESCRIPTION</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book[1] }}</td>
+                        <td>{{ book[2] }}</td>
+                        <td>{{ book[3] }}</td>
+                        <td>{{ book[4] }}</td>
+                        <td>
+                            <a href="/books/{{ book[0] }}" class="action-link">View</a>
+                            <a href="/books/{{ book[0] }}/edit" class="action-link">Edit</a>
+                            <form method="post" action="/books/{{ book[0] }}/delete" style="display: inline;">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/add" class="add-book-link">Create New Book</a>
+    </div>
+</body>
+</html>

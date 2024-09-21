@@ -30,5 +30,12 @@ class Database:
         self.cursor.execute("DELETE FROM books WHERE id=?", (book_id,))
         self.connection.commit()
 
+    def update_book(self, book_id: int, title: str, author: str, year: int, description: str):
+        self.cursor.execute('''UPDATE books
+                               SET title = ?, author = ?, year = ?, description = ?
+                               WHERE id = ?''', (title, author, year, description, book_id))
+        self.connection.commit()
+
+
     def close(self):
         self.connection.close()

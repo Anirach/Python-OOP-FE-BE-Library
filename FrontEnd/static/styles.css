@@ -1,0 +1,137 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2b3e50;
+    margin-bottom: 30px;
+    font-size: 36px; /* Increased font size for h1 */
+}
+
+.container {
+    max-width: 900px; /* Slightly increased width for better spacing */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Added spacing after the table */
+}
+
+thead {
+    background-color: #2b3e50;
+    color: white;
+    text-transform: uppercase; /* Changed to uppercase */
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+}
+
+table th {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table td {
+    border-bottom: 1px solid #eee;
+}
+
+.action-link, .delete-button {
+    font-weight: bold;
+    color: #2b3e50;
+    text-decoration: none;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.action-link:hover, .delete-button:hover {
+    text-decoration: underline;
+}
+
+.delete-button {
+    border: none;
+    background: none;
+    font-weight: bold;
+}
+
+.add-book-link {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2b3e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.add-book-link:hover {
+    text-decoration: underline;
+}
+
+form {
+    margin-top: 30px;
+    text-align: center;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2b3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1e2f40;
+}
+
+.create-button {
+    background-color: #2b3e50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.create-button:hover {
+    background-color: #1e2f40;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 20px;
+}

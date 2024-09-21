@@ -2,3 +2,7 @@ fastapi
 uvicorn
 jinja2
 pydantic
+
+# Flask and related libraries for the frontend
+flask
+requests
