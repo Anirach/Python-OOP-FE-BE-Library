@@ -15,6 +15,7 @@
                 <tr>
                     <th>TITLE</th>
                     <th>AUTHOR</th>
+                    <th>YEAR</th>
                     <th>DESCRIBTION</th>
                     <th>ACTIONS</th>
 
@@ -26,11 +27,11 @@
                         <td>{{ book[1] }}</td>
                         <td>{{ book[2] }}</td>
                         <td>{{ book[3] }}</td>
+                        <td>{{ book[4] }}</td>
                         <td>
                             <a href="/books/{{ book[0] }}" class="action-link">View</a>
                             <a href="/books/{{ book[0] }}/edit" class="action-link">Edit</a>
-                            <form method="post" action="/books/{{ book[0] }}/delete" style="display: inline;">
-                                <button type="submit" class="delete-button">Delete</button>
+                            <a href="/books/{{ book[0] }}/delete" class="action-link">Delete</a>
                             </form>
                         </td>
                     </tr>
