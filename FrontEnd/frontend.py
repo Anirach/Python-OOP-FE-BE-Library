@@ -11,7 +11,9 @@ BACKEND_URL = "http://127.0.0.1:8000/api"  # FastAPI backend
 def index():
     response = requests.get(f"{BACKEND_URL}/books")
     if response.status_code == 200:
-        books = response.json()['books']
+        jsbooks = response.json()
+        books  = [list(item.values()) for item in jsbooks]
+        print(books)
         return render_template("index.html", books=books)
     return "Error retrieving books", 500
 

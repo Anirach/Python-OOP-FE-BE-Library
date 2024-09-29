@@ -86,10 +86,11 @@ def delete_book_by_id(book_id: int):
 # API Endpoints
 
 # Fetch all books
-@app.get("/api/books")
+@app.get("/api/books", response_model=List[Book])
 async def fetch_books():
     books = get_all_books()
-    return {"books": books}
+    print(books)
+    return books
 
 # Add a book (backend endpoint)
 @app.post("/api/books")
@@ -109,7 +110,7 @@ async def fetch_single_book(book_id: int):
     book = get_book_by_id(book_id)
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
-    return {"book": book}
+    return book
 
 # Update a book
 @app.put("/api/books/{book_id}")

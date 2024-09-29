@@ -15,7 +15,9 @@ async def lifespan():
 @app.get("/api/books")
 async def get_books():
     books = db.get_books()
-    return {"books": books}
+    return [{"id": row[0], "title": row[1], "author": row[2], "year": row[3], "description": row[4]} for row in books]
+
+#    return {"books": books}
 
 # Add a book (backend endpoint)
 @app.post("/api/books")
