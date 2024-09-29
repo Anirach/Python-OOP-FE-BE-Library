@@ -159,3 +159,7 @@ button.create-button:hover {
     text-align: center;
     margin-top: 20px;
 }
+.container {
+    width: 80%;
+    margin: 0 auto; /* Center the container */
+}
