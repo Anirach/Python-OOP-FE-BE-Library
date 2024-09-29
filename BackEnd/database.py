@@ -35,6 +35,7 @@ class Database:
                                SET title = ?, author = ?, year = ?, description = ?
                                WHERE id = ?''', (title, author, year, description, book_id))
         self.connection.commit()
+        print(f'Book with id {book_id} updated successfully')
 
 
     def close(self):

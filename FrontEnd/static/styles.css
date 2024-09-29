@@ -13,10 +13,11 @@ h1 {
 }
 
   /* Style the table */
-  table {
+table {
     border-collapse: collapse;
     width: 80%;
-  }
+    margin: 0 auto; /* Center the table */
+}
 
 th, td {
     text-align: left;
@@ -153,4 +154,8 @@ button.create-button:hover {
     font-weight: bold;
     border: none;
     cursor: pointer;
+}
+.actions {
+    text-align: center;
+    margin-top: 20px;
 }

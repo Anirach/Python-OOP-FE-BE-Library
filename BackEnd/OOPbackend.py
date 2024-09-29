@@ -33,11 +33,11 @@ async def get_book(book_id: int):
 
 # Update a book
 @app.put("/api/books/{book_id}")
-async def update_book(book_id: int, title: str, author: str, year: int, description: str):
-    book = db.get_book(book_id)
-    if not book:
+async def update_book(book_id: int, book: Book):
+    existing_book = db.get_book(book_id)
+    if not existing_book:
         raise HTTPException(status_code=404, detail="Book not found")
-    db.update_book(book_id, title, author, year, description)
+    db.update_book(book_id, book.title, book.author, book.year, book.description)
     return {"message": "Book updated successfully"}
 
 # Delete a book

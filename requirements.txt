@@ -6,3 +6,7 @@ pydantic
 # Flask and related libraries for the frontend
 flask
 requests
+
+# Additional libraries for FPbackend.py
+sqlalchemy
+alembic

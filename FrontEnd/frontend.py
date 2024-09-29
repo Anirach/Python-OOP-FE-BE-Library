@@ -66,8 +66,9 @@ def edit_book(book_id):
     return "Book not found", 404
 
 # Delete a book
-@app.route('/books/<int:book_id>/delete', methods=["DELETE"])
+@app.route('/books/<int:book_id>/delete', methods=["GET", "POST"])
 def delete_book(book_id):
+    print("delete_book")
     response = requests.delete(f"{BACKEND_URL}/books/{book_id}")
     if response.status_code == 200:
         flash("Book deleted successfully", "success")
