@@ -31,7 +31,8 @@ async def get_book(book_id: int):
     book = db.get_book(book_id)
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
-    return {"book": book}
+    return {"id": book[0], "title": book[1], "author": book[2], "year": book[3], "description": book[4]}
+
 
 # Update a book
 @app.put("/api/books/{book_id}")

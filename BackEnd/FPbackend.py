@@ -43,7 +43,10 @@ def get_all_books():
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM books')
         books = cursor.fetchall()
-        return [{"id": row[0], "title": row[1], "author": row[2], "year": row[3], "description": row[4]} for row in books]
+        allbooks = [{"id": row[0], "title": row[1], "author": row[2], "year": row[3], "description": row[4]} for row in books]
+        print("All books:")
+        print(allbooks)
+        return allbooks
 
 # Function to add a book to the database
 def add_book(book: dict):
@@ -86,9 +89,10 @@ def delete_book_by_id(book_id: int):
 # API Endpoints
 
 # Fetch all books
-@app.get("/api/books", response_model=List[Book])
+@app.get("/api/books")
 async def fetch_books():
     books = get_all_books()
+    print("Response Books:")
     print(books)
     return books
 
@@ -108,6 +112,8 @@ async def create_book(book: Book):
 @app.get("/api/books/{book_id}")
 async def fetch_single_book(book_id: int):
     book = get_book_by_id(book_id)
+    print("One Book:")
+    print(book)
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
     return book

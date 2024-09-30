@@ -40,7 +40,8 @@ def add_book():
 def book_detail(book_id):
     response = requests.get(f"{BACKEND_URL}/books/{book_id}")
     if response.status_code == 200:
-        book = response.json()['book']
+        jsbooks = response.json()
+        book  = list(jsbooks.values())
         return render_template("book.html", book=book)
     return "Book not found", 404
 
@@ -63,7 +64,8 @@ def edit_book(book_id):
     # Fetch book details for the form
     response = requests.get(f"{BACKEND_URL}/books/{book_id}")
     if response.status_code == 200:
-        book = response.json()['book']
+        jsbooks = response.json()
+        book  = list(jsbooks.values())
         return render_template("edit.html", book=book)
     return "Book not found", 404
 

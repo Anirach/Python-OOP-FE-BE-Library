@@ -20,18 +20,6 @@ class Book(Base):
     year = Column(Integer)
     description = Column(Text, nullable=True)
 
-class BookCreate(BaseModel):
-    title: str
-    author: str
-    year: int
-    description: Optional[str] = None
-
-class BookUpdate(BaseModel):
-    title: Optional[str] = None
-    author: Optional[str] = None
-    year: Optional[int] = None
-    description: Optional[str] = None
-
 def init_db():
     Base.metadata.create_all(bind=engine)
 
@@ -46,12 +34,12 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/api/books", response_model=List[BookCreate])
+@app.get("/api/books")
 async def fetch_books(db: Session = Depends(get_db)):
     result = db.execute(select(Book)).scalars().all()
     return result
 
-@app.post("/api/books", response_model=BookCreate)
+@app.post("/api/books")
 async def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db_book = Book(**book.dict())
     db.add(db_book)
@@ -59,14 +47,14 @@ async def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db.refresh(db_book)
     return db_book
 
-@app.get("/api/books/{book_id}", response_model=BookCreate)
+@app.get("/api/books/{book_id}")
 async def fetch_single_book(book_id: int, db: Session = Depends(get_db)):
     book = db.query(Book).filter(Book.id == book_id).first()
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
     return book
 
-@app.put("/api/books/{book_id}", response_model=BookCreate)
+@app.put("/api/books/{book_id}")
 async def modify_book(book_id: int, book: BookUpdate, db: Session = Depends(get_db)):
     db_book = db.query(Book).filter(Book.id == book_id).first()
     if not db_book:
