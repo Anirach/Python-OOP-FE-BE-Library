@@ -2,7 +2,7 @@
 The small Python Example of OOP FrontEnd - Back-End and Database 
 PythonLibraryProject/
 ├── backend/
-│   ├── backend.py         # FastAPI backend code
+│   ├── OOPbackend.py      # FastAPI OOP Style backend code
 │   ├── database.py        # Database connection and operations
 │   └── requirements.txt   # Python dependencies for both backend and frontend
 ├── frontend/
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 # Step 3: Start the FastAPI backend
 cd backend/
-uvicorn backend:app --reload
+uvicorn OOPbackend:app --reload # for OOP version
 
 # Step 4: Start the Flask frontend (in a new terminal)
 source venv/bin/activate  # On Windows: venv\Scripts\activate
